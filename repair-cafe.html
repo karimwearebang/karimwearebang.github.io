@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Union Repair Cafe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #000;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 2px solid white;
+            border-radius: 8px;
+            margin: 0 auto 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+.center-button {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 200px;
+}
+
+        /* Hero Section */
+        .hero {
+            background: #f8f9fa;
+            color: #000;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            border: 2px solid #000;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: white;
+            color: #000;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #000;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border: 2px solid #000;
+            border-radius: 4px;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: #000;
+            color: white;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #000;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: background 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: white;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card:hover h3 {
+            color: white;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            background: #000;
+            height: 400px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Event Info Section */
+        .event-card {
+            background: white;
+            padding: 2.5rem;
+            border: 2px solid #000;
+            border-radius: 4px;
+            max-width: 700px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .event-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-details {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .event-cta {
+            margin-top: 2rem;
+        }
+
+        /* Partners Section */
+        .partners-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .partners-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Donate Section */
+        .donate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .donate-card {
+            background: white;
+            padding: 2rem;
+            border: 2px solid #000;
+            border-radius: 4px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .donate-card:hover {
+            transform: translateY(-5px);
+            background: #000;
+            color: white;
+        }
+
+        .donate-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .donate-card:hover .donate-amount {
+            color: white;
+        }
+
+        .donate-description {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            min-height: 60px;
+        }
+
+        .donate-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: 2px solid #000;
+        }
+
+        .donate-card:hover .donate-button {
+            background: white;
+            color: #000;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 2rem;
+            border: 2px solid #000;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .contact-box p {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            border: 2px solid #000;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            background: white;
+            color: #000;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .donate-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">GU</div>
+            <h1>Grand Union Repair Cafe</h1>
+            <nav>
+                <a href="#home">Homepage</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#donate">Donate</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>We Fix Whats Valuable To You</h1>
+        <p>Fixing things together. Reducing waste. Building community.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>ABOUT US</h2>
+            <p class="subtitle">Community-led repairs. Sustainable living. Stronger connections.</p>
+            <div class="about-content">
+                <div class="about-image">WE FIX WHAT'S VALUABLE TO YOU</div>
+                <div>
+                    <p>Grand Union Repair Café is a community-led space where people come together to connect, fix meaningful items, and reduce waste.</p>
+                    <p>As part of the Together Towards Zero movement, we support a greener, more sustainable Brent by helping to keep useful items out of landfills.</p>
+                    <p>We are holding a Repair Café on Sunday, 29 March 2026, at the Grand Union Community Hub in Wembley.</p>
+                    <p>A group of friendly volunteers will be on hand to repair bikes, clothing, and small handheld appliances, while sharing skills and knowledge along the way.</p>
+                    <p>By choosing to repair your personal items with us instead of replacing them, we're building a cleaner future and a stronger local community — one repair at a time.</p>
+                </div>
+            </div>
+<div class="center-button">
+        <a href="#event" class="cta-button">Get Your Free Ticket</a>
+</div>
+        </div>
+    </section>
+
+    <!-- Event Info Section -->
+    <section id="event">
+        <div class="container">
+            <h2>When and Where?</h2>
+            <div class="event-card">
+                <h3>Grand Union Community Hub</h3>
+                <div class="event-details">
+                    <p><strong>📍 Location:</strong> Wembley</p>
+                    <p><strong>📅 Date:</strong> Sunday 29th March 2026</p>
+                    <p><strong>🕐 Time:</strong> 12pm - 6pm</p>
+                </div>
+                <div class="event-cta">
+                    <a href="#" class="cta-button">Get Your Free Ticket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do">
+        <div class="container">
+            <h2>What We Do</h2>
+            <p class="subtitle">We host free community repair sessions where friendly volunteers help fix everyday items, share skills, and reduce waste together.</p>
+        </div>
+    </section>
+
+    <!-- What We Fix Section -->
+    <section id="services">
+        <div class="container">
+            <h2>What We Fix</h2>
+            <p class="subtitle">Bring your broken items and give them a second life.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚲</div>
+                    <h3>Bikes</h3>
+                    <p>From flat tires to brake adjustments, our volunteers will help get your bicycle back on the road.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪡</div>
+                    <h3>Clothing</h3>
+                    <p>Torn seams, missing buttons, or broken zippers — we'll help mend your favorite garments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Handheld Appliances</h3>
+                    <p>Small kitchen gadgets, tools, and electronics — bring them in and let's see if we can fix them together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners">
+        <div class="container">
+            <h2>Our Partners</h2>
+            <div class="partners-content">
+                <p>Grand Union Repair Café is proud to work alongside these partners who help make our community repairs possible.</p>
+                <p><strong>Partners: TBC</strong></p>
+                <p><a href="#" class="cta-button">Link to Partners</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate">
+        <div class="container">
+            <h2>Donate</h2>
+            <p class="subtitle">Support local repairs. Reduce waste. Donate today.</p>
+            <div class="donate-grid">
+                <div class="donate-card">
+                    <div class="donate-amount">£1</div>
+                    <p class="donate-description">Helps cover basic repair materials like screws, needles, and thread.</p>
+                    <a href="#" class="donate-button">Donate £1</a>
+                </div>
+                <div class="donate-card">
+                    <div class="donate-amount">£2</div>
+                    <p class="donate-description">Supports the running of a community repair session.</p>
+                    <a href="#" class="donate-button">Donate £2</a>
+                </div>
+                <div class="donate-card">
+                    <div class="donate-amount">£5</div>
+                    <p class="donate-description">Keeps tools maintained and ready for repairs.</p>
+                    <a href="#" class="donate-button">Donate £5</a>
+                </div>
+                <div class="donate-card">
+                    <div class="donate-amount">£10</div>
+                    <p class="donate-description">Helps repair multiple items and reduce waste in Brent.</p>
+                    <a href="#" class="donate-button">Donate £10</a>
+                </div>
+                <div class="donate-card">
+                    <div class="donate-amount">£20</div>
+                    <p class="donate-description">Supports an entire repair café session for the community.</p>
+                    <a href="#" class="donate-button">Donate £20</a>
+                </div>
+                <div class="donate-card">
+                    <div class="donate-amount">Custom</div>
+                    <p class="donate-description">Every contribution helps us repair more, waste less, and build a greener Brent.</p>
+                    <a href="#" class="donate-button">Custom Donation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="subtitle">Questions? Want to book a repair slot? We're here to help.</p>
+            <div class="contact-content">
+                <div class="contact-box">
+                    <h3>Contact Us</h3>
+                    <p>Have a question? Reach out to us at the email below and we'll get back to you soon.</p>
+                    <a href="mailto:contactgudt@gmail.com" class="contact-link">Email Us</a>
+                </div>
+                <div class="contact-box">
+                    <h3>Booking</h3>
+                    <p>Reserve a free repair slot — everyone is welcome, no experience needed.</p>
+                    <a href="#" class="contact-link">Reserve Your Slot</a>
+                </div>
+                <div class="contact-box">
+                    <h3>Additional Information</h3>
+                    <p>Still unsure or want to learn more? Find all the details on our Eventbrite page.</p>
+                    <a href="#" class="contact-link">View Eventbrite</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>WE FIX WHAT'S VALUABLE TO YOU</h3>
+        <p>&copy; 2024 Grand Union Repair Cafe. Building a greener, more sustainable Brent.</p>
+    </footer>
+</body>
+</html>
