@@ -42,14 +42,8 @@
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .nav-container {
@@ -71,9 +65,7 @@
             transition: color 0.3s ease;
         }
 
-        .logo:hover {
-            color: var(--highlight);
-        }
+        .logo:hover { color: var(--highlight); }
 
         .nav-links {
             display: flex;
@@ -101,13 +93,8 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--highlight);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover { color: var(--highlight); }
+        .nav-links a:hover::after { width: 100%; }
 
         /* Hero Section */
         .hero {
@@ -146,14 +133,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
@@ -179,10 +160,6 @@
             margin: 0 auto;
             padding: 6rem 3rem;
             animation: fadeInUp 0.8s ease-out both;
-        }
-
-        section:nth-child(even) {
-            animation-delay: 0.1s;
         }
 
         h2 {
@@ -282,6 +259,46 @@
             color: white;
         }
 
+        /* Venue Images */
+        .venue-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .venue-img-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(45, 95, 93, 0.12);
+            background: #d9e8e7;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: var(--primary);
+        }
+
+        .venue-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .venue-img-wrapper .img-placeholder {
+            font-size: 3rem;
+            opacity: 0.4;
+        }
+
+        .venue-img-wrapper .img-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            opacity: 0.6;
+        }
+
         /* What We Fix Grid */
         .fix-grid {
             display: grid;
@@ -313,9 +330,7 @@
             transition: left 0.6s ease;
         }
 
-        .fix-item:hover::before {
-            left: 100%;
-        }
+        .fix-item:hover::before { left: 100%; }
 
         .fix-item:hover {
             transform: translateY(-10px);
@@ -438,13 +453,36 @@
             font-family: 'Crimson Pro', serif;
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             letter-spacing: -1px;
         }
 
-        .footer-text {
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 1.5rem;
             font-size: 1rem;
-            opacity: 0.8;
+            opacity: 0.9;
+        }
+
+        .footer-contact a {
+            color: var(--highlight);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-contact a:hover {
+            opacity: 0.75;
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 1.5rem;
+            margin-top: 0.5rem;
         }
 
         /* Responsive Design */
@@ -465,35 +503,21 @@
                 padding: 5rem 1.5rem 4rem;
             }
 
-            .hero h1 {
-                font-size: 3rem;
-            }
+            .hero h1 { font-size: 3rem; }
+            .hero-tagline { font-size: 1.2rem; }
 
-            .hero-tagline {
-                font-size: 1.2rem;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            h2 {
-                font-size: 2.2rem;
-            }
+            section { padding: 4rem 1.5rem; }
+            h2 { font-size: 2.2rem; }
 
             .about-content,
-            .event-details {
-                padding: 2rem;
-            }
+            .event-details { padding: 2rem; }
 
             .fix-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+            .contact-grid { grid-template-columns: 1fr; }
 
-            .partner-logo {
-                height: 60px;
-            }
+            .venue-images { grid-template-columns: 1fr; }
+
+            .partner-logo { height: 60px; }
         }
 
         /* Scroll animations */
@@ -512,6 +536,7 @@
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -528,7 +553,8 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Grand Union Repair Café</h1>
-            <p class="hero-tagline">Fixing things together. Reducing waste. Building community.</p>
+            <!-- UPDATED SLOGAN -->
+            <p class="hero-tagline">Fixing Items. Reducing Waste. Building Community.</p>
         </div>
     </section>
 
@@ -547,11 +573,30 @@
         <div class="event-details">
             <h3>Join Us at the Grand Union Community Hub</h3>
             <div class="event-info">
-                <p><strong>Location:</strong> Grand Union Community Hub, Alperton</p>
+                <p><strong>Location:</strong> Grand Union Community Hub, 1 Quay Walk, Wembley, London HA0 1DY</p>
                 <p><strong>Date:</strong> Sunday, 29th March 2026</p>
-                <p><strong>Time:</strong> 12pm - 6pm</p>
+                <p><strong>Time:</strong> 12pm – 6pm</p>
             </div>
-            <a href="#" class="cta-button">Register on Eventbrite</a>
+            <!-- UPDATED LINK — replace YOUR_EVENTBRITE_LINK_HERE with the actual URL -->
+            <a href="https://www.eventbrite.com/e/grand-union-repair-cafe-tickets-1983539996525?aff=oddtdtcreator" target="_blank" class="cta-button">Register on Eventbrite</a>
+        </div>
+
+        <!-- Venue Images — replace src values with your actual image file paths -->
+        <div class="venue-images">
+            <div class="venue-img-wrapper">
+                <!-- Replace "community-hub-entrance.jpg" with your actual image filename -->
+                <img src="entrance.jpeg" alt="Grand Union Community Hub entrance"
+                     onerror="this.style.display='none'; this.parentElement.querySelector('.img-placeholder').style.display='block'; this.parentElement.querySelector('.img-label').style.display='block';">
+                <span class="img-placeholder" style="display:none;">🏢</span>
+                <span class="img-label" style="display:none;">Community Hub Entrance Photo</span>
+            </div>
+            <div class="venue-img-wrapper">
+                <!-- Replace "community-hub-map.jpg" with your actual map image filename -->
+                <img src="map.jpeg" alt="Map showing Grand Union Community Hub location"
+                     onerror="this.style.display='none'; this.parentElement.querySelector('.img-placeholder').style.display='block'; this.parentElement.querySelector('.img-label').style.display='block';">
+                <span class="img-placeholder" style="display:none;">🗺️</span>
+                <span class="img-label" style="display:none;">Location Map</span>
+            </div>
         </div>
     </section>
 
@@ -559,15 +604,9 @@
     <section>
         <h2>What We Fix</h2>
         <div class="fix-grid">
-            <div class="fix-item">
-                <h3>Bikes</h3>
-            </div>
-            <div class="fix-item">
-                <h3>Clothing</h3>
-            </div>
-            <div class="fix-item">
-                <h3>Handheld Appliances</h3>
-            </div>
+            <div class="fix-item"><h3>Bikes</h3></div>
+            <div class="fix-item"><h3>Clothing</h3></div>
+            <div class="fix-item"><h3>Handheld Appliances</h3></div>
         </div>
     </section>
 
@@ -606,12 +645,13 @@
             <div class="contact-card">
                 <h3>Booking</h3>
                 <p>Reserve a free repair slot — everyone is welcome, no experience needed.</p>
-                <a href="#" class="contact-link">Reserve your repair slot here</a>
+                <!-- UPDATED LINK — replace YOUR_EVENTBRITE_LINK_HERE with the actual URL -->
+                <a href="https://www.eventbrite.com/e/grand-union-repair-cafe-tickets-1983539996525?aff=oddtdtcreator" target="_blank" class="contact-link">Reserve your repair slot here</a>
             </div>
             <div class="contact-card">
                 <h3>Additional Information</h3>
                 <p>Still unsure or want to learn more? Find all the details on our Eventbrite page.</p>
-                <a href="#" class="contact-link">View Event Details</a>
+                <a href="https://www.eventbrite.com/e/grand-union-repair-cafe-tickets-1983539996525?aff=oddtdtcreator" target="_blank" class="contact-link">View Event Details</a>
             </div>
         </div>
     </section>
@@ -619,7 +659,12 @@
     <!-- Footer -->
     <footer>
         <p class="footer-tagline">WE FIX WHAT'S VALUABLE TO YOU</p>
+        <div class="footer-contact">
+            <span>📍 Grand Union Community Hub, 1 Quay Walk, Wembley, London HA0 1DY</span>
+            <a href="mailto:contactgudt@gmail.com">✉️ contactgudt@gmail.com</a>
+        </div>
         <p class="footer-text">Grand Union Repair Café © 2026</p>
     </footer>
+
 </body>
 </html>
